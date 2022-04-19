@@ -171,7 +171,7 @@ class Env:
         self.escape_proxy = False
         self.scheme = scheme
 
-    def __call__(self, var, cast=None, default=NOTSET, parse_default=False):
+    def __call__(self, var, cast=None, default=NOTSET, parse_default=True):
         return self.get_value(
             var,
             cast=cast,
@@ -327,7 +327,7 @@ class Env:
         """
         return Path(self.get_value(var, default=default), **kwargs)
 
-    def get_value(self, var, cast=None, default=NOTSET, parse_default=False):
+    def get_value(self, var, cast=None, default=NOTSET, parse_default=True):
         """Return value for given environment variable.
 
         :param var: Name of variable.
